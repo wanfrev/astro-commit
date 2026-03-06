@@ -85,39 +85,25 @@
 
 	.bento-card {
 		position: relative;
-		overflow: hidden;
 		border-radius: var(--radius-card);
 		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(23, 24, 29, 0.72);
-		padding: 1.5rem;
-		backdrop-filter: blur(12px);
-		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+		background: rgba(255, 255, 255, 0.05);
+		padding: 2rem;
+		transition: border-color 0.3s ease, box-shadow 0.3s ease,
+			background 0.3s ease, transform 0.3s ease;
 	}
 
-	.bento-card::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			600px circle at 20% 10%,
-			rgba(138, 43, 226, 0.18),
-			transparent 60%
-		);
-		opacity: 0;
-		transition: opacity 0.4s ease;
-		pointer-events: none;
+	.bento-card:hover {
+		border-color: rgba(0, 255, 65, 0.5);
+		background: rgba(0, 255, 65, 0.05);
+		box-shadow: 0 0 30px -10px rgba(0, 255, 65, 0.2);
+		transform: translateY(-2px);
 	}
 
-	.bento-card[data-accent="green"]::before {
-		background: radial-gradient(
-			600px circle at 20% 10%,
-			rgba(0, 255, 65, 0.18),
-			transparent 60%
-		);
-	}
-
-	.bento-card:hover::before {
-		opacity: 1;
+	.bento-card[data-accent="purple"]:hover {
+		border-color: rgba(138, 43, 226, 0.5);
+		background: rgba(138, 43, 226, 0.05);
+		box-shadow: 0 0 30px -10px rgba(138, 43, 226, 0.2);
 	}
 
 	.icon-chip {
