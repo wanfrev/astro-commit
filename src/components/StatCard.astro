@@ -1,0 +1,18 @@
+---
+const {
+  value,
+  label,
+  description,
+  accent = "green",
+  class: className = ""
+} = Astro.props;
+
+const accentClass = accent === "purple" ? "text-brand-purple" : "text-brand-green";
+const borderClass = accent === "purple" ? "border-brand-purple/40" : "border-brand-green/40";
+---
+
+<div class={`bento-card ${borderClass} ${className}`} data-accent={accent}>
+  <p class="text-xs font-mono uppercase tracking-[0.3em] text-white/50">{label}</p>
+  <p class={`mt-4 text-3xl font-mono md:text-4xl ${accentClass}`}>{value}</p>
+  <p class="mt-3 text-sm text-white/60">{description}</p>
+</div>
