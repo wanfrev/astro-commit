@@ -2,10 +2,63 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import NavBar from "../components/NavBar.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import ServiceCard from "../components/ServiceCard.astro";
 import StatCard from "../components/StatCard.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
+import AlmareImage from "../assets/ALMARE.svg";
+import BurcorImage from "../assets/Burcor.webp";
+import InglobalsImage from "../assets/Inglobals.png";
+import K11Image from "../assets/k11icon.png";
+
+const getProjectImageSrc = (image: string | { src: string }) =>
+	typeof image === "string" ? image : image.src;
+
+const projects = [
+	{
+		title: "K11box: Smart Boxing",
+		client: "K11box",
+		description:
+			"Ecosistema digital para entrenamiento de alto rendimiento y rankings globales.",
+		image: K11Image,
+		accent: "purple",
+		href: "#",
+		layout: "lg:col-span-7 lg:row-span-2",
+		imageMode: "contain"
+	},
+	{
+		title: "InGlobalS: AI Audit",
+		client: "InGlobalS",
+		description:
+			"Automatización de auditorías financieras mediante modelos de Machine Learning.",
+		image: InglobalsImage,
+		accent: "green",
+		href: "https://inglobals.com/",
+		layout: "lg:col-span-5 lg:row-span-2",
+		imageMode: "contain"
+	},
+	{
+		title: "Burcor: Health Logistics",
+		client: "Burcor Med",
+		description:
+			"Optimización de la cadena de suministro para dispositivos médicos críticos.",
+		image: BurcorImage,
+		accent: "green",
+		href: "https://burcormed.net/",
+		layout: "lg:col-span-6",
+		imageMode: "contain"
+	},
+	{
+		title: "Almare: Med-Tech",
+		client: "Almare",
+		description:
+			"Innovación en prótesis externas y cuidado especializado del paciente.",
+		image: AlmareImage,
+		accent: "purple",
+		href: "https://burcormed.net/almare/",
+		layout: "lg:col-span-6",
+		imageMode: "contain"
+	}
+];
 ---
 
 <BaseLayout
@@ -95,189 +148,363 @@ import Footer from "../components/Footer.astro";
 			</div>
 		</section>
 
-		<section id="servicios" class="py-20">
+		<section id="servicios" class="py-24">
 			<div class="page-container">
 				<SectionHeader
 					eyebrow="Servicios"
 					title="Soluciones que entienden tu negocio"
-					subtitle="Elegimos la mejor tecnologia para tu objetivo, no al reves."
+					subtitle="Elegimos la mejor tecnología para tu objetivo, no al revés."
 					accent="purple"
 				/>
-				<div class="mt-12 grid gap-6 lg:grid-cols-12">
-					<ServiceCard
-						class="lg:col-span-7"
-						title="Sitios Web y Apps a Medida"
-						description="No usamos plantillas. Creamos herramientas digitales rapidas y faciles de usar que se adaptan exactamente a lo que tu empresa hace."
-						tag="Desarrollo"
-						accent="green"
-					>
-						<svg
-							slot="icon"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<path d="M8 6l-4 6 4 6" />
-							<path d="M16 6l4 6-4 6" />
-							<path d="M12 4l-2 16" />
-						</svg>
-					</ServiceCard>
-					<ServiceCard
-						class="lg:col-span-7"
-						title="Hardware e Inventos Propios"
-						description="Necesitas un dispositivo fisico que no existe en el mercado? Disenamos y fabricamos circuitos y aparatos inteligentes para automatizar tu entorno."
-						tag="Hardware"
-						accent="purple"
-					>
-						<svg
-							slot="icon"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<circle cx="6" cy="12" r="2" />
-							<circle cx="18" cy="6" r="2" />
-							<circle cx="18" cy="18" r="2" />
-							<path d="M8 12h6M16 8l-4 4M16 16l-4-4" />
-						</svg>
-					</ServiceCard>
-					<ServiceCard
-						class="lg:col-span-5"
-						title="Tu Negocio en Piloto Automatico"
-						description="Usamos inteligencia artificial para que las tareas repetitivas se hagan solas. Ahorra tiempo y evita errores humanos."
-						tag="IA"
-						accent="purple"
-					>
-						<svg
-							slot="icon"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<rect x="7" y="7" width="10" height="10" rx="2" />
-							<path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4" />
-						</svg>
-					</ServiceCard>
-					<ServiceCard
-						class="lg:col-span-5"
-						title="Tecnologia Blindada y Segura"
-						description="Revisamos que tus sistemas actuales funcionen perfecto, sean seguros y no te den sorpresas desagradables."
-						tag="Auditoria"
-						accent="green"
-					>
-						<svg
-							slot="icon"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							aria-hidden="true"
-						>
-							<path d="M12 3l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z" />
-							<path d="M9 12l2 2 4-4" />
-						</svg>
-					</ServiceCard>
-					<div class="bento-card lg:col-span-12" data-accent="green">
-						<h3 class="text-2xl font-mono">Sin limites de industria o tecnologia</h3>
-						<p class="mt-2 text-white/70">
-							No importa si eres una startup, una fabrica o un comercio local. Nos
-							adaptamos a tu presupuesto y entorno.
-							<strong class="text-white">
-								Si se puede imaginar, en Commit se puede programar.
-							</strong>
-						</p>
-						<div class="mt-6 flex flex-wrap gap-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
-							<span>#Salud</span>
-							<span>#Logistica</span>
-							<span>#E-commerce</span>
-							<span>#Educacion</span>
-							<span>#Industria</span>
+
+				<div class="mt-16 grid gap-4 lg:grid-cols-12 lg:auto-rows-[18rem]">
+					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,65,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
+
+						<div class="absolute top-8 right-8 text-brand-green opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-16 w-16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M8 6l-4 6 4 6" />
+								<path d="M16 6l4 6-4 6" />
+								<path d="M12 4l-2 16" />
+							</svg>
+						</div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-green">
+								Desarrollo
+							</p>
+							<h3 class="text-2xl font-mono text-white">Sitios Web y Apps a Medida</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/60">
+									No usamos plantillas. Creamos herramientas digitales rápidas y fáciles de usar que se adaptan exactamente a tu flujo de trabajo.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
+
+						<div class="absolute top-8 right-8 text-brand-purple opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-16 w-16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<rect x="7" y="7" width="10" height="10" rx="2" />
+								<path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4" />
+							</svg>
+						</div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-purple">
+								IA & Automatización
+							</p>
+							<h3 class="text-2xl font-mono text-white">Negocio en Piloto Automático</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/60">
+									Algoritmos inteligentes que eliminan tareas repetitivas y errores humanos, permitiendo que tu equipo se enfoque en lo que importa.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
+
+						<div class="absolute top-8 right-8 text-brand-purple opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-16 w-16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<circle cx="6" cy="12" r="2" />
+								<circle cx="18" cy="6" r="2" />
+								<circle cx="18" cy="18" r="2" />
+								<path d="M8 12h6M16 8l-4 4M16 16l-4-4" />
+							</svg>
+						</div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-purple">
+								Hardware
+							</p>
+							<h3 class="text-2xl font-mono text-white">Inventos Propios</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/60">
+									Diseño de circuitos y prototipado electrónico para conectar el mundo físico con el digital.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,65,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
+
+						<div class="absolute top-8 right-8 text-brand-green opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-16 w-16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M12 3l7 3v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z" />
+								<path d="M9 12l2 2 4-4" />
+							</svg>
+						</div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-green">
+								Seguridad
+							</p>
+							<h3 class="text-2xl font-mono text-white">Tecnología Blindada</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/60">
+									Auditoría de sistemas y optimización de infraestructura para garantizar que tu negocio nunca se detenga.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-12 text-center lg:col-span-12 lg:row-span-2 lg:p-20">
+						<div class="absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_at_center,black,transparent)]">
+							<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[32px_32px]"></div>
+						</div>
+
+						<div class="absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-purple/20 opacity-50 blur-[120px] transition-all duration-700 group-hover:scale-150 group-hover:bg-brand-green/30"></div>
+
+						<div class="relative z-10">
+							<span class="mb-4 inline-block rounded-full border border-brand-green/30 bg-brand-green/10 px-4 py-1 font-mono text-[10px] uppercase tracking-[0.3em] text-brand-green">
+								Universal & Agnóstico
+							</span>
+
+							<h3 class="font-mono text-3xl tracking-tight text-white md:text-4xl lg:text-5xl">
+								Sin límites de <span class="text-white/40">industria</span> o <span class="text-white/40">tecnología</span>.
+							</h3>
+
+							<p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/50">
+								Nos adaptamos a tu presupuesto y entorno actual para construir el futuro de tu empresa.
+							</p>
+
+							<div class="mt-10">
+								<p class="font-mono text-xl italic md:text-2xl">
+									<span class="bg-linear-to-r from-brand-green via-white to-brand-purple bg-clip-text text-transparent">
+										"Si se puede imaginar, en Commit se puede programar."
+									</span>
+								</p>
+							</div>
+
+							<div class="mt-12 flex justify-center gap-2">
+								<div class="h-1 w-12 rounded-full bg-brand-green/50"></div>
+								<div class="h-1 w-4 rounded-full bg-white/20"></div>
+								<div class="h-1 w-1 rounded-full bg-white/10"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="confianza" class="py-20">
+		<section id="proyectos" class="py-24">
 			<div class="page-container">
 				<SectionHeader
-					eyebrow="Por que Commit"
+					eyebrow="Portfolio"
+					title="Proyectos destacados"
+					subtitle="Soluciones reales para negocios reales."
+					accent="purple"
+				/>
+
+				<div class="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[16rem]">
+					{projects.map((project) => (
+						<a
+							href={project.href}
+							target={project.href.startsWith("http") ? "_blank" : undefined}
+							rel={project.href.startsWith("http") ? "noreferrer" : undefined}
+							class={`group relative flex min-h-72 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink ${project.layout}`}
+						>
+							<img
+								src={getProjectImageSrc(project.image)}
+								alt={project.title}
+								loading="lazy"
+								class={`absolute inset-0 h-full w-full ${project.imageMode === "contain" ? "object-contain p-10" : "object-cover"} opacity-55 grayscale transition duration-700 group-hover:scale-105 group-hover:opacity-40 group-hover:grayscale-0`}
+							/>
+
+							<div
+								class={`absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-90 ${project.accent === "purple" ? "bg-[radial-gradient(circle_at_center,rgba(138,43,226,0.35),transparent_60%)]" : "bg-[radial-gradient(circle_at_center,rgba(0,255,65,0.35),transparent_60%)]"}`}
+							></div>
+
+							<div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
+
+							<div class="relative z-10 p-8 transition-transform duration-500 group-hover:-translate-y-2">
+								<p
+									class={`mb-2 text-[10px] font-mono uppercase tracking-[0.2em] ${project.accent === "purple" ? "text-brand-purple" : "text-brand-green"}`}
+								>
+									{project.client}
+								</p>
+								<h3 class="text-2xl font-mono leading-tight text-white">{project.title}</h3>
+								<div class="mt-3 grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+									<p class="overflow-hidden text-sm text-white/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 line-clamp-2">
+										{project.description}
+									</p>
+								</div>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="confianza" class="py-24">
+			<div class="page-container">
+				<SectionHeader
+					eyebrow="Por qué Commit"
 					title="Confianza sin tecnicismos"
-					subtitle="Tres razones simples para elegirnos desde el primer dia."
+					subtitle="Tres razones simples para elegirnos desde el primer día."
 					accent="green"
 				/>
-				<div class="mt-12 grid gap-6 md:grid-cols-3">
-					<div class="bento-card" data-accent="green">
-						<p class="section-label text-brand-green">Tiempo record</p>
-						<h3 class="mt-4 text-xl font-mono">Prototipos mas rapido</h3>
-						<p class="mt-3 text-sm text-white/70">
-							Sabemos que el tiempo es dinero. Entregamos prototipos funcionales
-							mas rapido que la competencia.
-						</p>
+				<div class="mt-16 grid gap-6 md:grid-cols-3">
+					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
+						<div class="absolute top-10 right-10 flex flex-col gap-1.5 opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-green">
+							<div class="h-px w-12 translate-x-4 bg-current transition-transform duration-700 group-hover:translate-x-0"></div>
+							<div class="h-px w-16 bg-current transition-transform duration-500"></div>
+							<div class="h-px w-8 translate-x-8 bg-current transition-transform duration-1000 group-hover:translate-x-0"></div>
+						</div>
+
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-green">
+								Velocidad
+							</p>
+							<h3 class="text-2xl font-mono text-white">Tiempo récord</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/50">
+									Sabemos que el tiempo es dinero. Entregamos prototipos funcionales más rápido que la competencia.
+								</p>
+							</div>
+						</div>
 					</div>
-					<div class="bento-card" data-accent="purple">
-						<p class="section-label text-brand-purple">Lenguaje claro</p>
-						<h3 class="mt-4 text-xl font-mono">Hablamos tu idioma</h3>
-						<p class="mt-3 text-sm text-white/70">
-							Somos ingenieros, pero explicamos todo sin tecnicismos. Solo
-							resultados y decisiones claras.
-						</p>
+
+					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/30">
+						<div class="absolute top-10 right-10 flex items-center justify-center opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-purple">
+							<div class="h-12 w-12 rounded-full border border-current animate-pulse"></div>
+							<div class="absolute h-6 w-6 rounded-full border border-current"></div>
+						</div>
+
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-purple">
+								Comunicación
+							</p>
+							<h3 class="text-2xl font-mono text-white">Hablamos tu idioma</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/50">
+									Somos ingenieros, pero explicamos procesos complejos sin tecnicismos innecesarios.
+								</p>
+							</div>
+						</div>
 					</div>
-					<div class="bento-card" data-accent="green">
-						<p class="section-label text-brand-green">Soporte total</p>
-						<h3 class="mt-4 text-xl font-mono">Acompanamiento completo</h3>
-						<p class="mt-3 text-sm text-white/70">
-							Te acompanamos desde el primer dibujo hasta que la solucion esta
-							funcionando al 100%.
-						</p>
+
+					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
+						<div class="absolute top-10 right-10 flex gap-1 opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-green">
+							<div class="h-8 w-1 rounded-full bg-current opacity-40"></div>
+							<div class="h-12 w-1 rounded-full bg-current"></div>
+							<div class="h-8 w-1 rounded-full bg-current opacity-40"></div>
+						</div>
+
+						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
+
+						<div class="relative z-10">
+							<p class="mb-2 text-[10px] font-mono uppercase tracking-[0.3em] text-brand-green">
+								Compromiso
+							</p>
+							<h3 class="text-2xl font-mono text-white">Soporte total</h3>
+							<div class="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+								<p class="mt-4 overflow-hidden text-sm leading-relaxed text-white/50">
+									Te acompañamos desde el primer borrador hasta que la solución está operando al 100%.
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="contacto" class="py-20">
+		<section id="contacto" class="py-24">
 			<div class="page-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-				<div>
+				<div class="flex flex-col justify-center">
 					<SectionHeader
-						eyebrow="Contacto"
-						title="Hablemos de tu idea"
-						subtitle="Cuentanos tu objetivo y te proponemos una solucion clara, con tiempos y presupuesto real."
+						eyebrow="Conexión"
+						title="Llevemos tu idea a producción"
+						subtitle="Sin burocracia. Ingeniería directa enfocada en resultados."
 						accent="green"
 					/>
-					<div class="mt-8 space-y-4 text-sm text-white/70">
-						<div class="flex gap-3">
-							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand-green"></span>
-							Entendemos tu necesidad en una llamada corta.
+
+					<div class="mt-12 space-y-8">
+						<div class="group relative flex gap-6">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-zinc-900 font-mono text-xs font-bold text-brand-green transition-all group-hover:border-brand-green/50 group-hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.2)]">
+								01
+							</div>
+							<div>
+								<h4 class="font-mono text-lg text-white">Briefing</h4>
+								<p class="text-sm text-white/50">Análisis técnico inicial sin compromisos.</p>
+							</div>
 						</div>
-						<div class="flex gap-3">
-							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand-purple"></span>
-							Propuesta clara con pasos simples y tiempos reales.
+
+						<div class="group relative flex gap-6">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-zinc-900 font-mono text-xs font-bold text-brand-purple transition-all group-hover:border-brand-purple/50 group-hover:shadow-[0_0_20px_-5px_rgba(138,43,226,0.2)]">
+								02
+							</div>
+							<div>
+								<h4 class="font-mono text-lg text-white">Blueprint</h4>
+								<p class="text-sm text-white/50">Propuesta técnica con tiempos y costos fijos.</p>
+							</div>
 						</div>
-						<div class="flex gap-3">
-							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand-green"></span>
-							Acompanamiento completo hasta la entrega.
+
+						<div class="group relative flex gap-6">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-zinc-900 font-mono text-xs font-bold text-brand-green transition-all group-hover:border-brand-green/50 group-hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.2)]">
+								03
+							</div>
+							<div>
+								<h4 class="font-mono text-lg text-white">Execution</h4>
+								<p class="text-sm text-white/50">Desarrollo ágil con entregas semanales.</p>
+							</div>
 						</div>
 					</div>
-					<div class="mt-8 bento-card" data-accent="green">
-						<p class="section-label text-brand-green">Cobertura</p>
-						<p class="mt-4 text-2xl font-mono">Latam + Global Remote</p>
-						<p class="mt-3 text-sm text-white/60">
-							Coordinacion con equipos internos y proveedores externos.
-						</p>
+
+					<div class="mt-12 inline-flex items-center gap-4 rounded-2xl border border-white/5 bg-white/2 p-4 pr-8">
+						<div class="relative flex h-3 w-3">
+							<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-green opacity-75"></span>
+							<span class="relative inline-flex h-3 w-3 rounded-full bg-brand-green"></span>
+						</div>
+						<div class="font-mono uppercase tracking-[0.2em]">
+							<span class="text-[10px] text-white/40">Soporte Activo</span>
+							<p class="text-sm text-white">Latam + Global Remote</p>
+						</div>
 					</div>
 				</div>
 				<ContactForm />

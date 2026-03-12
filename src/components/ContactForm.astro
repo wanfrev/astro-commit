@@ -1,56 +1,75 @@
-<form class="bento-card space-y-4 border-brand-purple/30" data-accent="purple">
-  <div>
-    <label class="text-xs font-mono uppercase tracking-[0.3em] text-white/50" for="nombre">
-      Nombre
-    </label>
-    <input
-      class="field-input mt-2"
-      id="nombre"
-      name="nombre"
-      type="text"
-      placeholder="Tu nombre"
-      required
-    />
-  </div>
-  <div>
-    <label class="text-xs font-mono uppercase tracking-[0.3em] text-white/50" for="email">
-      Email
-    </label>
-    <input
-      class="field-input mt-2"
-      id="email"
-      name="email"
-      type="email"
-      placeholder="tu@empresa.com"
-      required
-    />
-  </div>
-  <div>
-    <label class="text-xs font-mono uppercase tracking-[0.3em] text-white/50" for="servicio">
-      Servicio principal
-    </label>
-    <input
-      class="field-input mt-2"
-      id="servicio"
-      name="servicio"
-      type="text"
-      placeholder="Desarrollo Web, Electronica, IA..."
-    />
-  </div>
-  <div>
-    <label class="text-xs font-mono uppercase tracking-[0.3em] text-white/50" for="mensaje">
-      Briefing
-    </label>
-    <textarea
-      class="field-textarea mt-2"
-      id="mensaje"
-      name="mensaje"
-      placeholder="Describe el desafio, contexto y objetivos."
-      required
-    ></textarea>
-  </div>
-  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-    <button class="btn-primary w-full sm:w-auto" type="submit">Enviar briefing</button>
-    <span class="text-xs text-white/50">Respuesta en menos de 24 horas habiles.</span>
+<form class="group/form relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/50 lg:p-12">
+  <div class="absolute -right-20 -top-20 h-64 w-64 bg-brand-purple/10 blur-[80px] transition-opacity group-hover/form:opacity-20"></div>
+
+  <div class="grid gap-6">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="space-y-2">
+        <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="nombre">
+          Identificación
+        </label>
+        <input
+          class="w-full border-b border-white/10 bg-transparent px-2 py-3 font-mono text-white outline-none transition-all focus:border-brand-purple focus:bg-white/5"
+          id="nombre"
+          name="nombre"
+          type="text"
+          placeholder="Tu nombre"
+          required
+        />
+      </div>
+      <div class="space-y-2">
+        <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="email">
+          Canal de Retorno
+        </label>
+        <input
+          class="w-full border-b border-white/10 bg-transparent px-2 py-3 font-mono text-white outline-none transition-all focus:border-brand-purple focus:bg-white/5"
+          id="email"
+          name="email"
+          type="email"
+          placeholder="tu@empresa.com"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="servicio">
+        Área de Interés
+      </label>
+      <select
+        class="w-full appearance-none border-b border-white/10 bg-transparent px-2 py-3 font-mono text-white outline-none transition-all focus:border-brand-purple focus:bg-white/5"
+        id="servicio"
+        name="servicio"
+      >
+        <option class="bg-zinc-900" value="web">Desarrollo Software</option>
+        <option class="bg-zinc-900" value="hw">Hardware & IoT</option>
+        <option class="bg-zinc-900" value="ia">Inteligencia Artificial</option>
+      </select>
+    </div>
+
+    <div class="space-y-2">
+      <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="mensaje">
+        El Desafío (Briefing)
+      </label>
+      <textarea
+        class="min-h-30 w-full border border-white/10 bg-white/5 p-4 font-mono text-sm text-white outline-none transition-all focus:border-brand-purple/50"
+        id="mensaje"
+        name="mensaje"
+        placeholder="¿Qué quieres construir?"
+        required
+      ></textarea>
+    </div>
+
+    <div class="pt-4">
+      <button
+        class="group/btn relative w-full overflow-hidden rounded-full bg-brand-green px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] active:scale-95"
+        type="submit"
+      >
+        <span class="relative z-10">Iniciar Transmisión</span>
+        <div class="absolute inset-0 z-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover/btn:translate-x-full"></div>
+      </button>
+      <p class="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-white/30">
+        Acuse de recibo en <span class="text-brand-green">24h</span>
+      </p>
+    </div>
   </div>
 </form>
