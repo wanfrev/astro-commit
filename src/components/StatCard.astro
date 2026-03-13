@@ -11,8 +11,8 @@ const accentClass = accent === "purple" ? "text-brand-purple" : "text-brand-gree
 const borderClass = accent === "purple" ? "border-brand-purple/40" : "border-brand-green/40";
 ---
 
-<div class={`bento-card ${borderClass} ${className}`} data-accent={accent}>
+<div class={`bento-card min-w-0 ${borderClass} ${className}`} data-accent={accent}>
   <p class="text-xs font-mono uppercase tracking-[0.3em] text-white/50">{label}</p>
-  <p class={`mt-4 text-3xl font-mono md:text-4xl ${accentClass}`}>{value}</p>
-  <p class="mt-3 text-sm text-white/60">{description}</p>
+  <p class={`stat-value mt-4 text-3xl font-mono md:text-4xl ${accentClass} break-words`}>{value}</p>
+  <p class="stat-desc mt-3 text-sm text-white/60 whitespace-normal break-words min-w-0">{description}</p>
 </div>

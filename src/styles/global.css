@@ -275,20 +275,61 @@
 		box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.18);
 	}
 
-	/* Square card utility: keeps a 1:1 aspect ratio and prevents overflow */
+	/* Square card utility: keeps a 1:1 aspect ratio and centers content */
 	.square-card {
 		aspect-ratio: 1 / 1;
-		min-height: 14rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
 		overflow: hidden;
 		padding: 1.5rem;
 	}
 
-	/* Taller variant for large feature cards */
+	/* Utility: aspect-square for environments without Tailwind aspect-ratio plugin */
+	.aspect-square {
+		aspect-ratio: 1 / 1;
+		width: 100%;
+		display: block;
+	}
+
+	/* Taller variant for large feature cards: allow height to fit content */
 	.tall-card {
-		min-height: 20rem;
+		height: fit-content;
+		padding: 1.75rem 1.75rem;
+		min-height: 0;
+	}
+
+	/* Slightly reduce the small uppercase label inside square cards to improve fit */
+	.square-card p.text-xs {
+		font-size: 0.65rem;
+		letter-spacing: 0.28em;
+	}
+
+	/* Grid wrapper to force three equal columns and full width alignment */
+	.stats-grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.stats-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	/* Force value/description sizes inside square cards for better fit */
+	.square-card .stat-value {
+		font-size: 1.5rem;
+		line-height: 1.05;
+	}
+
+	.square-card .stat-desc {
+		font-size: 0.8rem;
 	}
 
 	.chip {
