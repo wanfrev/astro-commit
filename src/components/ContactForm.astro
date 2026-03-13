@@ -1,5 +1,15 @@
-<form class="group/form relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/50 lg:p-12">
+<form
+  data-contact-form
+  class="reveal reveal-right reveal-delay-2 group/form relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/50 lg:p-12"
+  action="https://formsubmit.co/contacto@commitinfo.com"
+  method="POST"
+>
   <div class="absolute -right-20 -top-20 h-64 w-64 bg-brand-purple/10 blur-[80px] transition-opacity group-hover/form:opacity-20"></div>
+
+  <input type="hidden" name="_subject" value="Nuevo contacto desde commitinfo.com" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
 
   <div class="grid gap-6">
     <div class="grid gap-6 md:grid-cols-2">
@@ -32,6 +42,19 @@
     </div>
 
     <div class="space-y-2">
+      <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="telefono">
+        Numero de telefono
+      </label>
+      <input
+        class="w-full border-b border-white/10 bg-transparent px-2 py-3 font-mono text-white outline-none transition-all focus:border-brand-purple focus:bg-white/5"
+        id="telefono"
+        name="telefono"
+        type="tel"
+        placeholder="Tu numero"
+      />
+    </div>
+
+    <div class="space-y-2">
       <label class="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40" for="servicio">
         Área de Interés
       </label>
@@ -43,6 +66,7 @@
         <option class="bg-zinc-900" value="web">Desarrollo Software</option>
         <option class="bg-zinc-900" value="hw">Hardware & IoT</option>
         <option class="bg-zinc-900" value="ia">Inteligencia Artificial</option>
+        <option class="bg-zinc-900" value="otros">Otros</option>
       </select>
     </div>
 
@@ -61,15 +85,125 @@
 
     <div class="pt-4">
       <button
+        data-submit-button
         class="group/btn relative w-full overflow-hidden rounded-full bg-brand-green px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] active:scale-95"
         type="submit"
       >
-        <span class="relative z-10">Iniciar Transmisión</span>
+        <span data-submit-label class="relative z-10">Enviar</span>
         <div class="absolute inset-0 z-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover/btn:translate-x-full"></div>
       </button>
       <p class="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-white/30">
         Recibe respuesta en <span class="text-brand-green">24h o menos</span>
       </p>
+
+      <div
+        data-form-notice
+        class="mt-4 max-h-0 translate-y-2 overflow-hidden opacity-0 transition-all duration-500"
+        role="status"
+        aria-live="polite"
+      >
+        <div
+          data-form-notice-box
+          class="rounded-2xl border border-brand-green/40 bg-brand-green/10 px-4 py-3 backdrop-blur-sm"
+        >
+          <div class="flex items-start gap-3">
+            <span
+              data-form-notice-symbol
+              class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand-green/50 bg-brand-green/20 text-xs font-bold text-brand-green"
+            >
+              ✓
+            </span>
+            <div>
+              <p
+                data-form-notice-title
+                class="text-[10px] font-mono uppercase tracking-[0.2em] text-brand-green"
+              >
+                Mensaje recibido
+              </p>
+              <p data-form-notice-text class="mt-1 text-sm text-white/80">
+                ¡Listo! Tu formulario fue enviado y recibido correctamente. Muy pronto estaremos
+                contactando contigo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </form>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-contact-form]");
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const submitButton = form.querySelector("[data-submit-button]");
+    const submitLabel = form.querySelector("[data-submit-label]");
+    const notice = form.querySelector("[data-form-notice]");
+    const noticeBox = form.querySelector("[data-form-notice-box]");
+    const noticeSymbol = form.querySelector("[data-form-notice-symbol]");
+    const noticeTitle = form.querySelector("[data-form-notice-title]");
+    const noticeText = form.querySelector("[data-form-notice-text]");
+    const defaultLabel = submitLabel?.textContent ?? "Enviar";
+
+    const showNotice = (type) => {
+      if (!notice || !noticeBox || !noticeSymbol || !noticeTitle || !noticeText) return;
+
+      notice.classList.remove("max-h-0", "opacity-0", "translate-y-2");
+      notice.classList.add("max-h-40", "opacity-100", "translate-y-0");
+
+      if (type === "success") {
+        noticeBox.classList.remove("border-red-400/40", "bg-red-500/10");
+        noticeBox.classList.add("border-brand-green/40", "bg-brand-green/10");
+        noticeSymbol.classList.remove("border-red-300/50", "bg-red-500/20", "text-red-200");
+        noticeSymbol.classList.add("border-brand-green/50", "bg-brand-green/20", "text-brand-green");
+        noticeSymbol.textContent = "✓";
+        noticeTitle.classList.remove("text-red-200");
+        noticeTitle.classList.add("text-brand-green");
+        noticeTitle.textContent = "Mensaje recibido";
+        noticeText.textContent =
+          "¡Listo! Tu formulario fue enviado y recibido correctamente. Muy pronto estaremos contactando contigo.";
+        return;
+      }
+
+      noticeBox.classList.remove("border-brand-green/40", "bg-brand-green/10");
+      noticeBox.classList.add("border-red-400/40", "bg-red-500/10");
+      noticeSymbol.classList.remove("border-brand-green/50", "bg-brand-green/20", "text-brand-green");
+      noticeSymbol.classList.add("border-red-300/50", "bg-red-500/20", "text-red-200");
+      noticeSymbol.textContent = "!";
+      noticeTitle.classList.remove("text-brand-green");
+      noticeTitle.classList.add("text-red-200");
+      noticeTitle.textContent = "No se pudo enviar";
+      noticeText.textContent = "Hubo un problema al enviar tu mensaje. Intenta nuevamente en unos segundos.";
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+      if (submitLabel) submitLabel.textContent = "Enviando...";
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("https://formsubmit.co/ajax/contacto@commitinfo.com", {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: formData
+        });
+
+        if (!response.ok) throw new Error("Error al enviar");
+
+        form.reset();
+        showNotice("success");
+      } catch {
+        showNotice("error");
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+        if (submitLabel) submitLabel.textContent = defaultLabel;
+      }
+    });
+  })();
+</script>

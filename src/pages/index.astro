@@ -21,9 +21,10 @@ const projects = [
 			"Ecosistema digital para entrenamiento de alto rendimiento y rankings globales.",
 		image: K11Image,
 		accent: "purple",
-		href: "#",
+		href: "https://www.instagram.com/k11.box/",
 		layout: "lg:col-span-7 lg:row-span-2",
-		imageMode: "contain"
+		imageMode: "contain",
+		revealClass: "reveal-left"
 	},
 	{
 		title: "InGlobalS: AI Audit",
@@ -34,7 +35,8 @@ const projects = [
 		accent: "green",
 		href: "https://inglobals.com/",
 		layout: "lg:col-span-5 lg:row-span-2",
-		imageMode: "contain"
+		imageMode: "contain",
+		revealClass: "reveal-right"
 	},
 	{
 		title: "Burcor: Health Logistics",
@@ -45,7 +47,8 @@ const projects = [
 		accent: "green",
 		href: "https://burcormed.net/",
 		layout: "lg:col-span-6",
-		imageMode: "contain"
+		imageMode: "contain",
+		revealClass: "reveal-pop"
 	},
 	{
 		title: "Almare: Med-Tech",
@@ -56,7 +59,8 @@ const projects = [
 		accent: "purple",
 		href: "https://burcormed.net/almare/",
 		layout: "lg:col-span-6",
-		imageMode: "contain"
+		imageMode: "contain",
+		revealClass: "reveal-up-soft"
 	}
 ];
 ---
@@ -74,7 +78,7 @@ const projects = [
 			<div class="glow-orb -bottom-24 left-0 h-72 w-72 bg-brand-green/25 animate-float"></div>
 			<div class="page-container relative z-10">
 					<div class="grid gap-12">
-					<div>
+					<div class="reveal reveal-up-soft reveal-visible">
 						<p class="section-label text-brand-green">Soluciones tecnológicas para tu negocio</p>
 						<h1 class="mt-6 text-4xl font-mono leading-tight md:text-5xl lg:text-6xl">
 							En Commit, <span class="gradient-text">hacemos realidad</span> la tecnología
@@ -105,8 +109,8 @@ const projects = [
 							</div>
 						</div>
 					</div>
-						<div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-[3cm]">
-							<div class="bento-card md:col-span-3 p-6 sm:p-8 flex flex-col justify-center" data-accent="purple">
+						<div class="stagger-grid grid gap-6 md:grid-cols-3">
+							<div class="reveal reveal-tilt bento-card md:col-span-3 p-6 sm:p-8 flex flex-col justify-center" data-accent="purple">
 								<p class="section-label text-brand-purple text-xs font-bold uppercase tracking-wider">Beneficios claros</p>
 								<h3 class="mt-4 text-3xl font-mono">Tecnología sin complicaciones</h3>
 								<ul class="mt-6 space-y-4 text-sm text-white/70">
@@ -128,39 +132,30 @@ const projects = [
 								</ul>
 							</div>
 
-							<div class="w-full max-w-[16rem] mx-auto min-h-[12rem]">
-								<StatCard
-									value="Días"
-									label="Primer prototipo"
-									description="No creemos en esperas infinitas; queremos que veas tu visión cobrar vida y que puedas tocarla, probarla y mejorarla cuanto antes."
-									accent="green"
-									class="h-full w-full flex flex-col justify-between p-6"
-								/>
-							</div>
+							<StatCard
+								value="Días"
+								label="Primer prototipo"
+								description="No creemos en esperas infinitas; queremos que veas tu visión cobrar vida y que puedas tocarla, probarla y mejorarla cuanto antes."
+								accent="green"
+								class="reveal reveal-left min-h-60 flex flex-col justify-between p-6"
+							/>
 
-							<div class="w-full max-w-[16rem] mx-auto min-h-[12rem]">
-								<StatCard
-									value="Semanas"
-									label="De la idea a una solución funcional."
-									description="Tu solución operativa, lista en semanas. 
-									Desarrollamos con metodologías ágiles para que tu negocio empiece a ver resultados reales en tiempo récord, sin complicaciones técnicas."
-									accent="purple"
-									class="h-full w-full flex flex-col justify-between p-6"
-								/>
-							</div>
+							<StatCard
+								value="Semanas"
+								label="De la idea a una solución funcional."
+								description="Tu solución operativa, lista en semanas. 
+								Desarrollamos con metodologías ágiles para que tu negocio empiece a ver resultados reales en tiempo récord, sin complicaciones técnicas."
+								accent="purple"
+								class="reveal reveal-right min-h-60 flex flex-col justify-between p-6"
+							/>
 
-							<div class="bento-card aspect-[4/3] w-full max-w-[16rem] mx-auto flex flex-col justify-between p-6" data-accent="green">
+							<div class="reveal reveal-pop bento-card min-h-60 flex flex-col justify-between p-6" data-accent="green">
 								<div>
 									<p class="section-label text-brand-green text-xs font-bold uppercase tracking-wider">Respuesta rápida para diagnóstico inicial.</p>
 									<p class="mt-4 text-4xl font-mono text-brand-green">Horas</p>
 									<p class="mt-3 text-sm text-white/60">Estamos presentes cuando nos necesitas. Desde tu primera consulta, 
 										te brindamos un diagnóstico claro y profesional en cuestión de horas. Tu tiempo es nuestra prioridad.
 										</p>
-								</div>
-								<div class="mt-auto pt-6">
-									<div class="h-1 w-full rounded-full bg-white/10">
-										<div class="h-1 w-2/3 rounded-full bg-brand-green"></div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -170,15 +165,17 @@ const projects = [
 
 		<section id="servicios" class="py-24">
 			<div class="page-container">
-				<SectionHeader
-					eyebrow="Servicios"
-					title="Soluciones que entienden tu negocio"
-					subtitle="Elegimos la mejor tecnología para tu objetivo, no al revés."
-					accent="purple"
-				/>
+				<div class="reveal reveal-up-soft">
+					<SectionHeader
+						eyebrow="Servicios"
+						title="Soluciones que entienden tu negocio"
+						subtitle="Elegimos la mejor tecnología para tu objetivo, no al revés."
+						accent="purple"
+					/>
+				</div>
 
-				<div class="mt-16 grid gap-4 lg:grid-cols-12 lg:auto-rows-[18rem]">
-					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
+				<div class="stagger-grid mt-16 grid gap-4 lg:grid-cols-12 lg:auto-rows-[18rem]">
+					<div class="reveal reveal-left group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,65,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
 
 						<div class="absolute top-8 right-8 text-brand-green opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
@@ -211,7 +208,7 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
+					<div class="reveal reveal-right group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
 
 						<div class="absolute top-8 right-8 text-brand-purple opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
@@ -243,7 +240,7 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
+					<div class="reveal reveal-pop group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-purple/30 lg:col-span-5">
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
 
 						<div class="absolute top-8 right-8 text-brand-purple opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
@@ -277,7 +274,7 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
+					<div class="reveal reveal-left group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink p-8 transition-all duration-500 hover:border-brand-green/30 lg:col-span-7">
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,65,0.35),transparent_55%)] opacity-10 transition-opacity duration-500 group-hover:opacity-20"></div>
 
 						<div class="absolute top-8 right-8 text-brand-green opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
@@ -309,7 +306,7 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-12 text-center lg:col-span-12 lg:row-span-2 lg:p-20">
+					<div class="reveal reveal-fade group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-12 text-center lg:col-span-12 lg:row-span-2 lg:p-20">
 						<div class="absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_at_center,black,transparent)]">
 							<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[32px_32px]"></div>
 						</div>
@@ -350,30 +347,32 @@ const projects = [
 
 		<section id="proyectos" class="py-24">
 			<div class="page-container">
-				<SectionHeader
-					eyebrow="Portfolio"
-					title="Proyectos destacados"
-					subtitle="Soluciones reales para negocios reales."
-					accent="purple"
-				/>
+				<div class="reveal reveal-up-soft">
+					<SectionHeader
+						eyebrow="Portfolio"
+						title="Proyectos destacados"
+						subtitle="Soluciones reales para negocios reales."
+						accent="purple"
+					/>
+				</div>
 
-				<div class="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[16rem]">
+				<div class="stagger-grid mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[16rem]">
 					{projects.map((project) => (
 						<a
 							href={project.href}
 							target={project.href.startsWith("http") ? "_blank" : undefined}
 							rel={project.href.startsWith("http") ? "noreferrer" : undefined}
-							class={`group relative flex min-h-72 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink ${project.layout}`}
+							class={`reveal ${project.revealClass} group relative flex min-h-72 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-brand-ink ${project.layout}`}
 						>
 							<img
 								src={getProjectImageSrc(project.image)}
 								alt={project.title}
 								loading="lazy"
-								class={`absolute inset-0 h-full w-full ${project.imageMode === "contain" ? "object-contain p-10" : "object-cover"} opacity-55 grayscale transition duration-700 group-hover:scale-105 group-hover:opacity-40 group-hover:grayscale-0`}
+								class={`absolute inset-0 h-full w-full ${project.imageMode === "contain" ? "object-contain p-10" : "object-cover"} opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-60`}
 							/>
 
 							<div
-								class={`absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-90 ${project.accent === "purple" ? "bg-[radial-gradient(circle_at_center,rgba(138,43,226,0.35),transparent_60%)]" : "bg-[radial-gradient(circle_at_center,rgba(0,255,65,0.35),transparent_60%)]"}`}
+								class={`absolute inset-0 opacity-45 transition-opacity duration-500 group-hover:opacity-75 ${project.accent === "purple" ? "bg-[radial-gradient(circle_at_center,rgba(138,43,226,0.35),transparent_60%)]" : "bg-[radial-gradient(circle_at_center,rgba(0,255,65,0.35),transparent_60%)]"}`}
 							></div>
 
 							<div class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent"></div>
@@ -399,18 +398,33 @@ const projects = [
 
 		<section id="confianza" class="py-24">
 			<div class="page-container">
-				<SectionHeader
-					eyebrow="Por qué Commit"
-					title="Confianza sin tecnicismos"
-					subtitle="Tres razones simples para elegirnos desde el primer día."
-					accent="green"
-				/>
-				<div class="mt-16 grid gap-6 md:grid-cols-3">
-					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
-						<div class="absolute top-10 right-10 flex flex-col gap-1.5 opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-green">
-							<div class="h-px w-12 translate-x-4 bg-current transition-transform duration-700 group-hover:translate-x-0"></div>
-							<div class="h-px w-16 bg-current transition-transform duration-500"></div>
-							<div class="h-px w-8 translate-x-8 bg-current transition-transform duration-1000 group-hover:translate-x-0"></div>
+				<div class="reveal reveal-up-soft">
+					<SectionHeader
+						eyebrow="Por qué Commit"
+						title="Confianza sin tecnicismos"
+						subtitle="Tres razones simples para elegirnos desde el primer día."
+						accent="green"
+					/>
+				</div>
+				<div class="stagger-grid mt-16 grid gap-6 md:grid-cols-3">
+					<div class="reveal reveal-left group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
+						<div class="absolute top-8 right-8 text-brand-green opacity-35 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-14 w-14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M5 13a7 7 0 1 1 14 0" />
+								<path d="M12 13l4-4" />
+								<path d="M8 10l-1-1" />
+								<path d="M16 10l1-1" />
+								<circle cx="12" cy="13" r="1" fill="currentColor" stroke="none" />
+							</svg>
 						</div>
 
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
@@ -428,10 +442,24 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/30">
-						<div class="absolute top-10 right-10 flex items-center justify-center opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-purple">
-							<div class="h-12 w-12 rounded-full border border-current animate-pulse"></div>
-							<div class="absolute h-6 w-6 rounded-full border border-current"></div>
+					<div class="reveal reveal-pop group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-purple/30">
+						<div class="absolute top-8 right-8 text-brand-purple opacity-35 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-14 w-14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<path d="M5 6h10a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H10l-4 4v-4H5a4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4z" />
+								<path d="M8 10h6" />
+								<path d="M8 13h4" />
+								<path d="M17 8c1.5 0 2.8.6 3.8 1.6" />
+								<path d="M17 16c1.5 0 2.8-.6 3.8-1.6" />
+							</svg>
 						</div>
 
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(138,43,226,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
@@ -449,11 +477,29 @@ const projects = [
 						</div>
 					</div>
 
-					<div class="group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
-						<div class="absolute top-10 right-10 flex gap-1 opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:text-brand-green">
-							<div class="h-8 w-1 rounded-full bg-current opacity-40"></div>
-							<div class="h-12 w-1 rounded-full bg-current"></div>
-							<div class="h-8 w-1 rounded-full bg-current opacity-40"></div>
+					<div class="reveal reveal-right group relative flex min-h-88 flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-8 transition-all duration-500 hover:border-brand-green/30">
+						<div class="absolute top-8 right-8 text-brand-green opacity-35 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+							<svg
+								class="h-14 w-14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<circle cx="12" cy="12" r="7" />
+								<circle cx="12" cy="12" r="3" />
+								<path d="M12 5v2" />
+								<path d="M12 17v2" />
+								<path d="M5 12h2" />
+								<path d="M17 12h2" />
+								<path d="M7.5 7.5l1.5 1.5" />
+								<path d="M15 15l1.5 1.5" />
+								<path d="M7.5 16.5l1.5-1.5" />
+								<path d="M15 9l1.5-1.5" />
+							</svg>
 						</div>
 
 						<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.1),transparent_60%)] opacity-30 transition-opacity duration-500 group-hover:opacity-60"></div>
@@ -476,7 +522,7 @@ const projects = [
 
 		<section id="contacto" class="py-24">
 			<div class="page-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-				<div class="flex flex-col justify-center">
+				<div class="reveal reveal-left flex flex-col justify-center">
 					<SectionHeader
 						eyebrow="Conexión"
 						title="Llevemos tu idea a producción"
@@ -532,4 +578,32 @@ const projects = [
 		</section>
 	</main>
 	<Footer />
+	<script is:inline>
+		const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		if (!prefersReducedMotion) {
+			const revealElements = document.querySelectorAll(".reveal");
+
+			if (revealElements.length > 0) {
+				document.documentElement.classList.add("motion-enabled");
+
+				const observer = new IntersectionObserver(
+					(entries, currentObserver) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
+
+							entry.target.classList.add("reveal-visible");
+							currentObserver.unobserve(entry.target);
+						});
+					},
+					{
+						threshold: 0.16,
+						rootMargin: "0px 0px -8% 0px"
+					}
+				);
+
+				revealElements.forEach((element) => observer.observe(element));
+			}
+		}
+	</script>
 </BaseLayout>
